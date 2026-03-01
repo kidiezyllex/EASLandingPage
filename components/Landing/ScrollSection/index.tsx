@@ -158,7 +158,7 @@ export const ScrollSection = () => {
               style={{ width: `${progress}%` }}
             />
           </div>
-          <p className="text-sm font-normal tracking-widest uppercase text-teal-950">Đang tải... {Math.round(progress)}%</p>
+          <p className="text-base font-medium tracking-widest uppercase text-teal-950">Đang tải... {Math.round(progress)}%</p>
         </div>
       )}
 
@@ -181,21 +181,21 @@ export const ScrollSection = () => {
 
         <motion.div
           style={{ opacity: engineeringOpacity, y: engineeringY }}
-          className="absolute inset-x-6 md:inset-x-12 top-1/2 -translate-y-1/2 flex justify-start pointer-events-none z-10"
+          className="absolute inset-x-4 md:inset-x-8 top-1/2 -translate-y-2/3 flex justify-start pointer-events-none z-10"
         >
           <div className="max-w-md">
-            <h2 className="text-4xl md:text-6xl font-bold text-primary leading-tight">Thiết Bị Điều Khiển & Giám Sát.</h2>
-            <p className="text-lg text-teal-950 max-w-[320px] mt-2 font-normal">Cung cấp Rơle trung gian, bộ chuyển đổi tín hiệu và thiết bị bảo vệ từ các thương hiệu hàng đầu: Carlo Gavazzi, Schneider, Phoenix Contact.</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary leading-tight">Thiết bị điều khiển & giám sát.</h2>
+            <p className="text-xl text-teal-950 max-w-[330px] mt-2 font-normal">Cung cấp Rơle trung gian, bộ chuyển đổi tín hiệu và thiết bị bảo vệ từ các thương hiệu hàng đầu: Carlo Gavazzi, Schneider, Phoenix Contact.</p>
           </div>
         </motion.div>
 
         <motion.div
           style={{ opacity: driversOpacity, y: driversY }}
-          className="absolute inset-x-6 md:inset-x-12 top-1/2 -translate-y-1/2 flex justify-end pointer-events-none text-right z-10"
+          className="absolute inset-x-4 md:inset-x-8 top-1/2 -translate-y-2/3 flex justify-end pointer-events-none text-right z-10"
         >
           <div className="max-w-md flex flex-col items-end">
-            <h2 className="text-4xl md:text-6xl font-bold text-primary leading-tight">Thí Nghiệm &<br />Kiểm Định.</h2>
-            <p className="text-lg text-teal-950 max-w-[320px] mt-2 font-normal text-right">Dịch vụ thí nghiệm định kỳ, bảo dưỡng thiết bị điện cao áp và kiểm định trạm biến áp lên đến 220kV.</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary leading-tight">Thí nghiệm &<br />kiểm định.</h2>
+            <p className="text-xl text-teal-950 max-w-[330px] mt-2 font-normal text-right">Dịch vụ thí nghiệm định kỳ, bảo dưỡng thiết bị điện cao áp và kiểm định trạm biến áp lên đến 220kV.</p>
           </div>
         </motion.div>
 
