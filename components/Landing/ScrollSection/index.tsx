@@ -23,8 +23,8 @@ export const ScrollSection = () => {
 
   // Snappier physics for more responsive scrolling
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 110,
-    damping: 32,
+    stiffness: 90,
+    damping: 40,
     restDelta: 0.001
   });
 
@@ -147,6 +147,9 @@ export const ScrollSection = () => {
   const ctaOpacity = useTransform(smoothProgress, [0.92, 0.98], [0, 1]);
   const ctaScale = useTransform(smoothProgress, [0.92, 0.98], [0.8, 1]);
   const ctaY = useTransform(smoothProgress, [0.92, 0.98], [30, 0]);
+  // Product card transforms
+  const productCardOpacity = useTransform(smoothProgress, [0, 0.15, 0.3], [1, 1, 0]);
+  const productCardX = useTransform(smoothProgress, [0, 0.15, 0.3], [0, 0, 50]);
 
   return (
     <div ref={containerRef} className="relative h-[400vh] bg-[#E6E6E6]">
@@ -172,9 +175,9 @@ export const ScrollSection = () => {
         {/* Dark Overlay - Higher opacity for better text contrast */}
         <div className="absolute inset-0 bg-black/10 z-[5] pointer-events-none" />
 
-        {/* Product Card Overlay - Appearing with the initial title */}
+        {/* Product Card*/}
         <motion.div
-          style={{ opacity: titleOpacity }}
+          style={{ opacity: productCardOpacity, x: productCardX }}
           className="absolute bottom-6 right-6 md:bottom-24 md:right-6 z-20 pointer-events-auto"
         >
           <div className="group w-fit overflow-hidden rounded-2xl border border-secondary/10 bg-primary p-3 shadow-xl transition-all hover:shadow-2xl hover:shadow-primary/40">
