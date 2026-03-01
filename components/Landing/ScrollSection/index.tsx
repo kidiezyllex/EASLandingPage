@@ -134,26 +134,27 @@ export const ScrollSection = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, [images]);
 
-  // Text overlay transforms
-  const titleOpacity = useTransform(smoothProgress, [0, 0.06, 0.1], [1, 1, 0]);
-  const titleY = useTransform(smoothProgress, [0, 0.1], [0, -50]);
+  // Text overlay transforms - Synchronized 0.1 rhythm
+  const titleOpacity = useTransform(smoothProgress, [0, 0.1, 0.2], [1, 1, 0]);
+  const titleY = useTransform(smoothProgress, [0, 0.1, 0.2], [0, 0, -50]);
 
-  const engineeringOpacity = useTransform(smoothProgress, [0.12, 0.2, 0.4, 0.48], [0, 1, 1, 0]);
-  const engineeringY = useTransform(smoothProgress, [0.12, 0.2, 0.4, 0.48], [40, 0, 0, -40]);
+  const engineeringOpacity = useTransform(smoothProgress, [0.2, 0.3, 0.4, 0.5], [0, 1, 1, 0]);
+  const engineeringY = useTransform(smoothProgress, [0.2, 0.3, 0.4, 0.5], [40, 0, 0, -40]);
 
-  const driversOpacity = useTransform(smoothProgress, [0.52, 0.6, 0.8, 0.88], [0, 1, 1, 0]);
-  const driversY = useTransform(smoothProgress, [0.52, 0.6, 0.8, 0.88], [40, 0, 0, -40]);
+  const driversOpacity = useTransform(smoothProgress, [0.5, 0.6, 0.7, 0.8], [0, 1, 1, 0]);
+  const driversY = useTransform(smoothProgress, [0.5, 0.6, 0.7, 0.8], [40, 0, 0, -40]);
 
-  const ctaOpacity = useTransform(smoothProgress, [0.92, 0.98], [0, 1]);
-  const ctaScale = useTransform(smoothProgress, [0.92, 0.98], [0.8, 1]);
-  const ctaY = useTransform(smoothProgress, [0.92, 0.98], [30, 0]);
-  // Product card transforms
-  const productCardOpacity = useTransform(smoothProgress, [0, 0.15, 0.3], [1, 1, 0]);
-  const productCardX = useTransform(smoothProgress, [0, 0.15, 0.3], [0, 0, 50]);
+  const ctaOpacity = useTransform(smoothProgress, [0.85, 0.95], [0, 1]);
+  const ctaScale = useTransform(smoothProgress, [0.85, 0.95], [0.8, 1]);
+  const ctaY = useTransform(smoothProgress, [0.85, 0.95], [30, 0]);
 
-  // Customer card transforms
-  const customerCardOpacity = useTransform(smoothProgress, [0, 0.15, 0.3], [1, 1, 0]);
-  const customerCardX = useTransform(smoothProgress, [0, 0.15, 0.3], [0, 0, -50]);
+  // Product card transforms - Synchronized with title
+  const productCardOpacity = useTransform(smoothProgress, [0, 0.1, 0.2], [1, 1, 0]);
+  const productCardX = useTransform(smoothProgress, [0, 0.1, 0.2], [0, 0, 50]);
+
+  // Customer card transforms - Synchronized with title
+  const customerCardOpacity = useTransform(smoothProgress, [0, 0.1, 0.2], [1, 1, 0]);
+  const customerCardX = useTransform(smoothProgress, [0, 0.1, 0.2], [0, 0, -50]);
 
   return (
     <div ref={containerRef} className="relative h-[400vh] bg-[#E6E6E6]">
