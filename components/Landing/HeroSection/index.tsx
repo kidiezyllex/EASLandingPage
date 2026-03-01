@@ -155,7 +155,7 @@ export function HeroSection() {
 
                 {/* Stats strip */}
                 <motion.div
-                    className="mt-20 grid w-full grid-cols-2 gap-8 lg:grid-cols-4"
+                    className="mt-16 grid w-full grid-cols-2 gap-8 lg:grid-cols-4"
                     initial="hidden"
                     animate="visible"
                 >

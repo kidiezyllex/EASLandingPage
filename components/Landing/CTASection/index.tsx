@@ -18,7 +18,7 @@ const fadeUp = {
 
 export function CTASection() {
     return (
-        <section id="cta" className="relative overflow-hidden py-16">
+        <section id="cta" className="relative overflow-hidden py-24">
             {/* Background image */}
             <Image
                 src="/images/cta-bg.jpg"
@@ -58,7 +58,7 @@ export function CTASection() {
                     </motion.p>
 
                     {/* Registration form */}
-                    <motion.div custom={2} variants={fadeUp} className="mx-auto mt-10 max-w-md">
+                    <motion.div custom={2} variants={fadeUp} className="mx-auto mt-10 max-w-3xl">
                         <div className="flex flex-col gap-3 sm:flex-row">
                             <Input
                                 type="email"
