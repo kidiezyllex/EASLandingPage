@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 import { Icon } from "@/components/ui/mdi-icon";
-import { mdiPhone, mdiArrowRight, mdiStar, mdiChevronRight, mdiCheckDecagram, mdiAccountGroup, mdiAccountTie } from "@mdi/js";
+import { mdiPhone, mdiArrowRight, mdiStar, mdiChevronRight, mdiCheckDecagram, mdiAccountGroup, mdiAccountTie, mdiLightningBoltCircle } from "@mdi/js";
 import Image from "next/image";
 
 const FRAME_COUNT = 120;
@@ -273,8 +273,9 @@ export const ScrollSection = () => {
         {/* Text Overlays */}
         <motion.div
           style={{ opacity: titleOpacity, y: titleY }}
-          className="absolute inset-0 -top-20 flex flex-col items-center justify-center pointer-events-none z-10"
+          className="absolute inset-0 -top-20 flex flex-row items-center justify-center pointer-events-none z-10"
         >
+          <Icon path={mdiLightningBoltCircle} size={4.2} className="text-primary" />
           <h1 className="text-5xl md:text-8xl font-bold text-primary tracking-tighter text-center px-4">GIẢI PHÁP TỰ ĐỘNG ĐIỆN</h1>
         </motion.div>
 
