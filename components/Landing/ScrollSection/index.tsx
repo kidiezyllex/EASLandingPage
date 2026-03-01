@@ -3,7 +3,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 import { Icon } from "@/components/ui/mdi-icon";
-import { mdiPhone } from "@mdi/js";
+import { mdiPhone, mdiArrowRight, mdiStar, mdiChevronRight } from "@mdi/js";
+import Image from "next/image";
 
 const FRAME_COUNT = 120;
 const IMAGE_PATH = "/images/ezgif-frame-";
@@ -33,7 +34,7 @@ export const ScrollSection = () => {
     let loadedCount = 0;
 
     for (let i = 1; i <= FRAME_COUNT; i++) {
-      const img = new Image();
+      const img = new window.Image();
       const frameIndex = i.toString().padStart(3, "0");
       img.src = `${IMAGE_PATH}${frameIndex}.jpg`;
       img.onload = () => {
@@ -170,6 +171,54 @@ export const ScrollSection = () => {
 
         {/* Dark Overlay - Higher opacity for better text contrast */}
         <div className="absolute inset-0 bg-black/10 z-[5] pointer-events-none" />
+
+        {/* Product Card Overlay - Appearing with the initial title */}
+        <motion.div
+          style={{ opacity: titleOpacity }}
+          className="absolute bottom-6 right-6 md:bottom-24 md:right-6 z-20 pointer-events-auto"
+        >
+          <div className="group w-fit overflow-hidden rounded-2xl border border-secondary/10 bg-primary p-3 shadow-xl transition-all hover:shadow-2xl hover:shadow-primary/40">
+            <div className="flex gap-4 items-center">
+              {/* Product Image - Square on left */}
+              <div className="relative aspect-square w-24 h-24 flex-shrink-0 overflow-hidden rounded-xl bg-secondary/10">
+                <Image
+                  src="https://giaiphaptudongdien.com/wp-content/uploads/2024/12/z6133468496889_02de85660e72ce86adebeb5790c558ef.jpg"
+                  alt="Rơle trung gian Schneider"
+                  fill
+                  className="object-cover transition-transform group-hover:scale-110"
+                />
+              </div>
+
+              {/* Content on right */}
+              <div className="flex flex-col justify-between flex-1 min-w-0">
+                <div className="space-y-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-base font-semibold text-secondary/80">Sản phẩm tiêu biểu</span>
+                  </div>
+                  <h3 className="text-sm md:text-base font-bold text-secondary leading-tight truncate">Rơle trung gian Schneider
+                  </h3>
+
+                  {/* Stars - Now below title */}
+                  <div className="flex gap-0.5">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <Icon key={i} path={mdiStar} size={0.8} className="text-yellow-300" />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex flex-col">
+                    <p className="text-sm text-secondary"><strong>Trạng thái:</strong> <span className="text-sm text-secondary">Sẵn hàng</span></p>
+
+                  </div>
+                  <button className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary text-primary transition-transform group-hover:scale-110">
+                    <Icon path={mdiChevronRight} size={0.8} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
         {/* Text Overlays */}
         <motion.div
