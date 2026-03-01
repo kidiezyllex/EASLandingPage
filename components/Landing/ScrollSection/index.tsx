@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 import { Icon } from "@/components/ui/mdi-icon";
-import { mdiPhone, mdiArrowRight, mdiStar, mdiChevronRight } from "@mdi/js";
+import { mdiPhone, mdiArrowRight, mdiStar, mdiChevronRight, mdiCheckDecagram, mdiAccountGroup, mdiAccountTie } from "@mdi/js";
 import Image from "next/image";
 
 const FRAME_COUNT = 120;
@@ -151,6 +151,10 @@ export const ScrollSection = () => {
   const productCardOpacity = useTransform(smoothProgress, [0, 0.15, 0.3], [1, 1, 0]);
   const productCardX = useTransform(smoothProgress, [0, 0.15, 0.3], [0, 0, 50]);
 
+  // Customer card transforms
+  const customerCardOpacity = useTransform(smoothProgress, [0, 0.15, 0.3], [1, 1, 0]);
+  const customerCardX = useTransform(smoothProgress, [0, 0.15, 0.3], [0, 0, -50]);
+
   return (
     <div ref={containerRef} className="relative h-[400vh] bg-[#E6E6E6]">
       {/* Loading Screen Overlay */}
@@ -174,6 +178,49 @@ export const ScrollSection = () => {
 
         {/* Dark Overlay - Higher opacity for better text contrast */}
         <div className="absolute inset-0 bg-black/10 z-[5] pointer-events-none" />
+
+        {/* Customer Stats Card - Top Left */}
+        <motion.div
+          style={{ opacity: customerCardOpacity, x: customerCardX }}
+          className="absolute top-10 left-6 md:top-12 md:left-8 z-20 pointer-events-auto"
+        >
+          <div className="flex items-start rounded-2xl border border-secondary/10 bg-primary/90 p-3 backdrop-blur-md transition-all shadow-2xl shadow-primary/40 flex-col gap-2">
+            {/* Avatar Group */}
+            <div className="flex -space-x-3 overflow-hidden">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="inline-block h-10 w-10 rounded-full border-2 border-primary bg-secondary/20 ring-2 ring-transparent">
+                  <Image
+                    src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i + 123}`}
+                    alt="Customer"
+                    width={40}
+                    height={40}
+                    className="rounded-full"
+                  />
+                </div>
+              ))}
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-primary bg-secondary text-[10px] font-bold text-primary ring-2 ring-transparent">
+                +250
+              </div>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="flex flex-col justify-between h-full gap-1">
+                <div className="flex items-center gap-1">
+                  <Icon path={mdiCheckDecagram} size={0.6} className="text-secondary" />
+                  <span className="text-sm font-bold text-secondary/80">Đối tác tin cậy</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Icon path={mdiAccountTie} size={0.6} className="text-secondary" />
+                  <span className="text-sm font-bold text-secondary/80">Khách hàng doanh nghiệp</span>
+                </div>
+              </div>
+
+              <div className="ml-2 border-l-2 border-secondary/20 pl-4">
+                <div className="text-xl font-black text-secondary">98%</div>
+                <div className="text-sm uppercase font-semibold text-secondary/80">Hài lòng</div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
         {/* Product Card*/}
         <motion.div
